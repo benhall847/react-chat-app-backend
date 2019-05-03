@@ -3,14 +3,17 @@ const app = express()
 app.use(express.urlencoded({extended: true}))
 
 const db= [
-    'CHAT APP AMAZINGNESS'
+    'CHAT APP AMAZINGNESS',
+    'this is AMAZING'
 ]
 
-app.get('/', (req,res)=>{
+app.get('/api', (req,res)=>{
     res.json(db)
 })
 
-app.post('/', (req,res)=>{
+app.post('/api', (req,res)=>{
+    console.log(req.body)
+    console.log(req.data)
     db.push(req.body.message)
     res.json(req.body.message)
 })
